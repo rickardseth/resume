@@ -12,8 +12,8 @@ resume.pdf: resume.tex
 
 .PHONY:: clean
 clean:
-	rm resume.aux
-	rm resume.log
-	rm resume.out
-	rm resume.pdf
+	rm -f resume.aux
+	rm -f resume.log
+	rm -f resume.out
+	rm -f resume.pdf
 
