@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -e
+
+xelatex -include-directory=.build/roboto -enable-installer resume.tex

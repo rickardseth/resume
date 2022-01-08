@@ -3,3 +3,7 @@
 *.log
 *.out
 *.pdf
+
+# temp build dirs
+.tmp
+.build

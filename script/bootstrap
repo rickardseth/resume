@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -e
+
+# check for programs
+command -v xelatex >/dev/null 2>&1 || {
+    echo >&2 "xelatex required, consider miktex"
+    echo >&2 "https://miktex.org"
+    exit 1
+}
+
+TMP_DIR=".tmp"
+BUILD_DIR=".build"
+
+rm -rf ${TMP_DIR}
+rm -rf ${BUILD_DIR}
+
+mkdir -p ${TMP_DIR}
+mkdir -p ${BUILD_DIR}
+
+# download roboto font
+curl -o ${TMP_DIR}/roboto.zip https://fonts.google.com/download?family=Roboto
+unzip ${TMP_DIR}/roboto.zip -d ${BUILD_DIR}/roboto
