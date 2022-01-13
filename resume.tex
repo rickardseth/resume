@@ -6,7 +6,7 @@
 \documentclass[a4paper,10pt]{article}
 
 \usepackage{marvosym}
-\usepackage{fontspec}                  % for loading fonts
+\usepackage{fontspec}
 \usepackage{xunicode}
 \usepackage{xltxtra}
 \usepackage{url}
@@ -14,14 +14,14 @@
 \RequirePackage{color,graphicx}
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{fullpage}
-\usepackage[margin=0.75in]{geometry}
-\usepackage{supertabular}              % for Grades
-\usepackage{titlesec}                  % custom \section
+\usepackage[margin=0.5in]{geometry}
+\usepackage{tabularx}
+\usepackage{supertabular}
+\usepackage{titlesec}
+\usepackage{enumitem}
 
-% Setup hyperref package, and colours for links
 \usepackage{hyperref}
-\definecolor{linkcolour}{rgb}{0,0.2,0.6}
-\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+\hypersetup{hidelinks=true}
 
 % Fonts
 \defaultfontfeatures{Mapping=tex-text}
@@ -34,14 +34,23 @@
 \titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
 \titlespacing{\section}{0pt}{3pt}{3pt}
 
-%%%%%%%%%%%%%%%%%%% Begin Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% left column, timeline and names
+\newcolumntype{s}{>{\raggedleft \bfseries} p{\dimexpr 0.1\textwidth}}
+% job title
+\newcolumntype{t}{>{\bfseries} l}
+% institution
+\newcolumntype{u}{>{\bfseries} r}
+% description
+\newcolumntype{v}{>{\raggedright \small} p{\dimexpr 0.875\textwidth}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Begin Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
 \pagestyle{empty}                      % non-numbered pages
 
 \font\fb=''[cmr10]''                   % for use with \LaTeX command
 
-% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \par{
   \centering{
     \Huge \textsc{Seth Ryan Rickard}
@@ -50,142 +59,163 @@
 
 \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} c @{\extracolsep{\fill}} r}
 
-  (619)793-6826 & Github:@rickardseth & rickardseth11@gmail.com \\
+  (619)793-6826                                                                                    &
+  Github:\href{https://github.com/rickardseth}{@rickardseth}                                       &
+  \href{mailto:rickardseth11@gmail.com}{rickardseth11@gmail.com}                                  \\
 
 \end{tabular*}
 
-%%%%%%%%%% Sections %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Sections %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%% Education %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Education}
 
 \begin{tabular*}{\textwidth}{r l @{\extracolsep{\fill}} r}
 
-  Iowa State University & Bachelors, \emph{Cum GPA: 3.62} cum laude             & Ames, IA \\
-                  Major & Computer Engineering: Embedded Systems and Networking & May 2016 \\
+  Iowa State University & Bachelors, \emph{Cum GPA: 3.62} cum laude             & Ames, IA        \\
+                  Major & Computer Engineering: Embedded Systems and Networking & May 2016        \\
                   Minor & Mathematics
 
 \end{tabular*}
 
-%%%%%%%%%%%%%%%%%%%% Work Experience %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Work Experience}
 
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} r | l r}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} s | t u}
 
-  Current   & Applications Engineer & Texas Instruments Incorporated          \\
-  June 2017 & \multicolumn {2} {p{\dimexpr 0.8\textwidth}} {
-                \raggedright \small{
-                  Provided customer support for the OpenThread Stack on Texas
-                  Instruments silicone. Created documentation for the Texas
-                  Instruments Thread Networking Software Development Kit.
-              }}                                                              \\
+  \multicolumn {1}{l}{} & \multicolumn {2}{l}{}                                                   \\
 
-  \multicolumn {1}{l |}{} & \multicolumn {2}{l}{}                             \\
+    Current & Embedded Software Engineer & Texas Instruments Incorporated                         \\
+  June 2016 & \multicolumn {2} {v} {
+                Supported the \textbf{Thread wireless protocol} and the \textbf{Matter IoT
+                framework} on the TI Connected Microcontroller family of products. This was done by
+                representing TI within the \textbf{Thread Group} and the \textbf{Connectivity
+                Standards Alliance}.
 
-  June 2017 & Software Engineer &                                             \\
-  June 2016 & \multicolumn {2} {p{\dimexpr 0.8\textwidth}} {
-                \raggedright \small{
-                  Ported the OpenThread Networking stack to the Texas
-                  Instruments CC2650 and CC2652 and TI-RTOS. Created the Texas
-                  Instruments Thread Networking Software Development Kit.
-                  Helped Create an Android Application Demo for Thread CES
-                  2017.
-              }}                                                              \\
+                \begin{itemize}[nosep, leftmargin=1em]
+                  \item Maintained the \textbf{open source software} within the TI SimpleLink SDK
+                        and on Github for Thread and Matter.
+                  \item Created \textbf{functional and technical requirements} for new hardware
+                        and software in Embedded Processing. Drove for alignment within the Business
+                        Unit to ensure TI will continue to be competitive in the market.
+                  \item Collaborated on multiple other projects within Embedded Processing for
+                        wireless connectivity protocols.
+                  \item Helped standardize the \textbf{code quality} practices of example software
+                        within the SimpleLink SDK.
+                  \item Created marketing collateral for new protocols at trade shows and helped
+                        facilitate customer meetings.
+                \end{itemize}\vspace*{-\baselineskip}\leavevmode
+              }                                                                                   \\
 
-  \multicolumn {1}{l}{} & \multicolumn {2}{l}{}                               \\
+  \multicolumn {1}{l}{} & \multicolumn {2}{l}{}                                                   \\
 
-  Aug 2015  & Software Engineering Intern & Digi International                \\
-  May 2015  & \multicolumn {2} {p{\dimexpr 0.8\textwidth}} {
-                \raggedright \small{
-                  Helped create an Android Application to configure wireless
-                  gateways and retooled a C library for driving XBee modules.
-              }}                                                              \\
+   Aug 2015 & Software Engineering Intern & Digi International                                    \\
+   May 2015 & \multicolumn {2} {v} {
+                Assisted creating an \textbf{Android App} to configure \textbf{Zigbee} gateways and
+                updated the \textbf{C} XBee moduile library.
+              }                                                                                   \\
 
-  \multicolumn {1}{l}{} & \multicolumn {2}{l}{}                               \\
+  \multicolumn {1}{l}{} & \multicolumn {2}{l}{}                                                   \\
 
-  May 2015  & Software Engineering Intern & Maverick Software Consulting      \\
-  May 2014  & \multicolumn {2} {p{\dimexpr 0.8\textwidth}} {
-                \raggedright \small{
-                  Consulted for Thompson Reuters in creating Enterprise Java
-                  and Groovy applications to convert large XML documents.
-              }}                                                              \\
+   May 2015 & Software Engineering Intern & Maverick Software Consulting                          \\
+   May 2014 & \multicolumn {2} {v} {
+                Consulted for Thompson Reuters creating \textbf{Enterprise Java} and \textbf{Groovy}
+                processing \textbf{XML data} at scale.
+              }                                                                                   \\
 
-  \multicolumn {1}{l}{} & \multicolumn {2}{l}{}                               \\
+  \multicolumn {1}{l}{} & \multicolumn {2}{l}{}                                                   \\
 
-  Aug 2014  & Teaching Assistant & Iowa State Electrical and Computer Engineering \\
-  May 2014  & \multicolumn {2} {p{\dimexpr 0.8\textwidth}} {
-                \raggedright \small{
-                  Advised students in the lab sections for the summer sessions
-                  of the Introduction to Embedded Systems course.
-              }}                                                              \\
+   Aug 2014 & Teaching Assistant & Iowa State Electrical and Computer Engineering                 \\
+   May 2014 & \multicolumn {2} {v} {
+                Advised students on robotics for lab sections of the Introduction to Embedded
+                Systems course.
+              }                                                                                   \\
 
-  \multicolumn {1}{l}{} & \multicolumn {2}{l}{}                               \\
+  \multicolumn {1}{l}{} & \multicolumn {2}{l}{}                                                   \\
 
-  May 2016  & Master Electrician & Iowa State Threatre                        \\
-  Aug 2014  & \multicolumn {2} {p{\dimexpr 0.8\textwidth}} {
-                \raggedright \small{
-                  Designed and executed light plots for the theatre shows in
-                  Fisher Theatre and Iowa State Theatre practice areas.
-              }}                                                              \\
-
-\end{tabular*}
-
-%%%%%%%%%%%%%%%%%%%% Skills %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Skills}
-
-\begin{tabular}{*{5}{p{.2\textwidth}}}
-
-  C / C++           & vi / Vim          & Thread           & Mathematical Proofs \\
-  Java              & git               & IEEE 802.15.4    & Linear Algebra  \\
-  Python            & LaTeX             & 6LoWPAN          & Differential Equations \\
-  Javascript        & make / gmake      & CoAP             & Calculus        \\
-  Bash              & scrum / agile     & XML / JSON       & Cryptography    \\
-
-\end{tabular}
-
-%%%%%%%%%%%%%%%%%%%% Activities & Projectes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Activities \& Projects}
-
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} r | l r}
-
-  Current   & OpenThread support & github.com/openthread                      \\
-  June 2016 & \multicolumn {2} {p{\dimexpr 0.8\textwidth}} {
-                \raggedright \small{
-                  Supporting the OpenThread Thread networking stack on Texas
-                  Instruments SoCs. My professional Github account is
-                  @srickardti.
-              }}                                                              \\
-
-  \multicolumn {1}{l}{} & \multicolumn {2}{l}{}                               \\
-
-  Oct 2015  & HackISU & Iowa State University                                 \\
-            & \multicolumn {2} {p{\dimexpr 0.8\textwidth}} {
-                \raggedright \small{
-                  MLH hackathon organized by a community in Computer
-                  Engineering at Iowa State University. We created a Pebble
-                  smart watch application in 36 hours.
-              }}                                                              \\
-
-  \multicolumn {1}{l}{} & \multicolumn {2}{l}{}                               \\
-
-  Nov 2014  & ACM Programming Competition & University Nebraska Lincoln       \\
-            & \multicolumn {2} {p{\dimexpr 0.8\textwidth}} {
-                \raggedright \small{
-                  Programming competition focusing on speed and accuracy of
-                  algorithms written in Java.
-              }}                                                              \\
+   May 2016 & Master Electrician & Iowa State Threatre                                            \\
+   Aug 2014 & \multicolumn {2} {v} {
+                Designed and executed light plots for the theatre shows in Fisher Theatre and Iowa
+                State Theatre.
+              }                                                                                   \\
 
 \end{tabular*}
 
-%%%%%%%%%%%%%%%%%%%% Honors %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Standards Development}
+
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} s | t u}
+
+  Thread Group & \multicolumn {2} {v} {
+    Thread is an \textbf{IPv6 based low power wireless personal area mesh network solution} designed
+    to be the best way to connect and control products within the home. Member companies of the
+    Thread group develop and maintain this IoT protocol as well as maintain a robust certification
+    process for devices that carry the Thread logomark. More information about the group can be
+    found at \href{https://www.threadgroup.org/}{ThreadGroup.org}.
+
+    OpenThread is an \textbf{open-source} implementation of the Thread protocol created and
+    maintained by Nest/Google. This \textbf{C/C++} codebase has been developed collaboratively by
+    multiple product and silicon vendors. More information about the project can be found at
+    \href{https://openthread.io/}{openthread.io}. The Github interactions were done with the account
+    \href{https://github.com/srickardti}{@srickardti}
+
+    While working at Texas Instruments I was responsible for multiple projects with Thread and
+    OpenThread:
+
+    \begin{itemize}[nosep, leftmargin=1em]
+
+      \item Pushed the first new device to OpenThread on Github by adding the CC2650 Connected MCU
+      \item Ported OpenThread to \textbf{TI-RTOS} and added support within the TI SimpleLink SDK
+      \item Helped Certify the CC1352\_CC2652 family of products for Thread 1.1.1 aiding customers
+            in product development
+      \item Created an automation framework with \textbf{Jenkins} for the Thread test harness to run
+            every quarterly SDK release
+      \item Wrote \textbf{reStructuredText} for the Thread User's Guide within the TI SimpleLink SDK
+      \item Ported the OpenThread \textbf{Linux} border router to \textbf{BeagleBone Black} and
+            continue to maintain the public guide on openthread.io and source code on Github for
+            both a UART and SPI Radio CoProcessor design
+      \item \textbf{Credited author} of the Thread 1.2 specification, updating the sequence diagrams
+            with \textbf{plantuml}
+      \item \textbf{Represented Texas Instruments} at the Thread Group all members meetings for
+            multiple years
+      \item \textbf{Vice-Chair of the Thread Technical Sub-Group Range Extension} working group
+            extending Thread with Sub-1GHz
+
+    \end{itemize}\vspace*{-\baselineskip}\leavevmode
+  }                                                                                               \\
+
+  \multicolumn {1}{l}{} & \multicolumn {2}{l}{}                                                   \\
+
+  Connectivity Standards Alliance & \multicolumn {2} {v} {
+    The CSA (formerly the Zigbee Alliance) is a standards organization that stewards multiple
+    protocol standards such as; Matter, Zigbee, rf4ce, and more. Matter is an \textbf{IP based IoT
+    framework} developed by member companies of the CSA including Google, Apple, and Amazon.  Matter
+    is desinged to securly unify the fragmented home and building automation ecosystem and is based
+    on industry tested protocols like Weave, HomeKit, and Zigbee. More information can be found at
+    \href{https://csa-iot.org/}{csa-iot.org} and
+    \href{https://buildwithmatter.com/}{buildwithmatter.com}.
+
+    While working at Texas Instruments I was responsible for multiple projects with CSA and Matter:
+
+    \begin{itemize}[nosep, leftmargin=1em]
+
+      \item Pushed support for the CC2652 and CC2652R7 device families to the connectedhomeip
+            repository
+      \item \textbf{Represented Texas Instruments} at the Matter technical,
+            certification, and marketing working group meeting
+      \item Participated in early Matter test events to validate the specification and SDK for
+            release
+
+    \end{itemize}\vspace*{-\baselineskip}\leavevmode
+  }                                                                                               \\
+
+\end{tabular*}
+
 \section{Honors}
 
-\begin{tabular*}{\textwidth}{r @{${}\bullet{}$}l @{\extracolsep{\fill}} r @{${}\bullet{}$}l}
+\begin{tabular*}{\textwidth}{r | l c r | l}
 
-  Ind. Spring 2014 & Tau Beta Pi Eng. Hon. Society                             &
-  2012 - 2016  & Iowa State Engineering Dean's List                           \\
-  Aug 2012 - May 2015  & Iowa State Honors Program                             &
-  2012 - 2016  & Presidential Achievement Scholarship                         \\
+  Inducted Spring 2014 & Tau Beta Pi Eng. Hon. Society                     & & % extra col for space
+           2012 - 2016 & Iowa State Engineering Dean's List                                       \\
+   Aug 2012 - May 2015 & Iowa State Honors Program                         & & % extra col for space
+           2012 - 2016 & Presidential Achievement Scholarship                                     \\
 
 \end{tabular*}
 
